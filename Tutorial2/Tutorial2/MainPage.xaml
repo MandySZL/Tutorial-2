@@ -94,12 +94,18 @@
                            Margin="0,8" />
 
                     <Grid ColumnDefinitions="Auto, *" ColumnSpacing="16" Margin="0,8,0,0">
+
                         <Border Grid.Column="0"
                                 Stroke="{StaticResource Gray300}"
                                 StrokeShape="RoundRectangle 12"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                            <Label Text="♡"
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLoveClicked" />
+                            </Border.GestureRecognizers>
+
+                            <Label x:Name="LoveButtonLabel" 
+                                   Text="♡"
                                    FontSize="24"
                                    TextColor="{StaticResource Gray500}"
                                    HorizontalOptions="Center"
@@ -112,7 +118,8 @@
                                 TextColor="Black"
                                 FontFamily="OpenSansSemibold"
                                 CornerRadius="25"
-                                HeightRequest="50" />
+                                HeightRequest="50"
+                                Clicked="OnAdoptionClicked" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>
