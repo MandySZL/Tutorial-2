@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tutorial2.ViewModels
 {
-    internal class BaseVieModel
+    internal class BaseViewModel
     {
     }
 }
