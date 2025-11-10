@@ -1,4 +1,4 @@
-﻿namespace Mobile;
+﻿namespace Tutorial2;
 
 public partial class MainPage : ContentPage
 {

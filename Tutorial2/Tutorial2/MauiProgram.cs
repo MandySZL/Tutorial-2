@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Prism.Maui; // <-- This fixes the errors
-using Tutorial2; // <-- This fixes the 'App' error
+using Tutorial2;
 using Tutorial2.ViewModels.Pages;
 
 namespace Tutorial2
@@ -16,22 +16,15 @@ namespace Tutorial2
                 {
                     prism.RegisterTypes(container =>
                     {
-                        // This part is from your tutorial, but it's for
-                        // a project that MOVED MainPage. You have not.
-                        // You may need to update this later.
+                        // ...
                         container.RegisterForNavigation<MainPage, MainPageViewModel>();
                     })
-                    .OnAppStart(app =>
+                    .OnAppStart(app => // <--- This method is now found
                     {
                         app.NavigateAsync("MainPage");
                     });
                 })
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
-
+                // ...
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
