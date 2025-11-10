@@ -43,7 +43,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.5" />
-		<PackageReference Include="Prism.Maui.DryIoc" Version="8.1.97" />
+		<PackageReference Include="Prism.DryIoc.Maui" Version="9.0.537" />
 	</ItemGroup>
 
 </Project>
