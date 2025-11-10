@@ -1,6 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Prism.Maui; // <-- This fixes the errors
-using Tutorial2;
 using Tutorial2.ViewModels.Pages;
 
 namespace Tutorial2
@@ -12,19 +10,22 @@ namespace Tutorial2
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UsePrism((prism) =>
+                .UsePrism(static (prism) =>
                 {
+                    // RegisterTypes returns void, so you can't chain methods from it.
                     prism.RegisterTypes(container =>
                     {
                         // ...
                         container.RegisterForNavigation<MainPage, MainPageViewModel>();
-                    })
-                    .OnAppStart(app => // <--- This method is now found
+                    }); // <-- End the RegisterTypes statement here.
+
+                    // Call OnAppStart on the 'prism' variable directly.
+                    prism.OnAppStart(app =>
                     {
                         app.NavigateAsync("MainPage");
                     });
                 });
-                // ...
+            // ...
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
