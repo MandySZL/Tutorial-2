@@ -1,13 +1,9 @@
-﻿namespace Tutorial2
-{
-    public partial class MainPage : ContentPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+﻿namespace Mobile;
 
-        // The OnCounterClicked method has been removed 
-        // since "CounterBtn" no longer exists in the new XAML.
+public partial class MainPage : ContentPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
     }
 }

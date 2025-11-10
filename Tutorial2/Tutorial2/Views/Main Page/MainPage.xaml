@@ -1,19 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tutorial2.MainPage"
-             Shell.NavBarIsVisible="False">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Tutorial2.MainPage"
+    xmlns:viewmodels="clr-namespace:Tutorial2.ViewModels.Pages">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainPageViewModel />
+    </ContentPage.BindingContext>
 
     <ScrollView>
         <Grid RowDefinitions="Auto" RowSpacing="0">
 
             <VerticalStackLayout Spacing="16" Grid.Row="0">
-                <Label Text="Mandy Siaw Zhi Lei BCS23090059"
+                <Label Text="{Binding AuthorName}"
                        Style="{StaticResource SubHeadline}"
                        TextColor="{StaticResource Gray900}"
                        Margin="0,24,0,0" />
 
-                <Image Source="golden.jpg"
+                <Image Source="{Binding PetImage}"
                        HeightRequest="350"
                        Aspect="AspectFill" />
 
@@ -38,24 +43,24 @@
 
                     <Grid ColumnDefinitions="*, Auto" ColumnSpacing="16">
                         <VerticalStackLayout Grid.Column="0">
-                            <Label Text="Robin Hood"
+                            <Label Text="{Binding PetName}"
                                    FontSize="24"
                                    FontFamily="OpenSansSemibold"
                                    TextColor="Black" />
-                            <Label Text="Golden Retriever"
+                            <Label Text="{Binding PetBreed}"
                                    FontSize="16"
                                    TextColor="{StaticResource Gray500}" />
                         </VerticalStackLayout>
 
                         <HorizontalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="8">
-                            <Label Text="1 year old"
+                            <Label Text="{Binding PetAge}"
                                    TextColor="{StaticResource Gray500}"
                                    VerticalOptions="Center" />
                         </HorizontalStackLayout>
                     </Grid>
 
                     <HorizontalStackLayout Spacing="8">
-                        <Label Text="3B, Lorong 88, Taman Rantau Panjang, 96000 Sibu, Sarawak"
+                        <Label Text="{Binding PetLocation}"
                                TextColor="{StaticResource Gray500}"
                                FontSize="14" />
                     </HorizontalStackLayout>
@@ -64,7 +69,7 @@
 
                     <Grid ColumnDefinitions="Auto, *, Auto" RowDefinitions="Auto, Auto" ColumnSpacing="12">
                         <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                               Source="teolaegi.jpg"
+                               Source="{Binding OwnerImage}"
                                HeightRequest="50"
                                WidthRequest="50"
                                Aspect="AspectFill">
@@ -74,7 +79,7 @@
                         </Image>
 
                         <Label Grid.Row="0" Grid.Column="1"
-                               Text="Baekhyun"
+                               Text="{Binding OwnerName}"
                                FontFamily="OpenSansSemibold"
                                TextColor="Black"
                                VerticalOptions="End" />
@@ -84,24 +89,29 @@
                                VerticalOptions="Start" />
 
                         <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
-                               Text="1.11.2024"
+                               Text="{Binding PostDate}"
                                TextColor="{StaticResource Gray500}"
                                VerticalOptions="Center" />
                     </Grid>
 
-                    <Label Text="Hi! Robin the Golden is simply a tiny tornado of fur, wrinkles, and endless charm!"
+                    <Label Text="{Binding PetDescription}"
                            TextColor="Black"
                            Margin="0,8" />
 
                     <Grid ColumnDefinitions="Auto, *" ColumnSpacing="16" Margin="0,8,0,0">
+
                         <Border Grid.Column="0"
                                 Stroke="{StaticResource Gray300}"
                                 StrokeShape="RoundRectangle 12"
                                 HeightRequest="50"
                                 WidthRequest="50">
-                            <Label Text="♡"
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoveCommand}" />
+                            </Border.GestureRecognizers>
+
+                            <Label Text="{Binding LoveButtonText}"
                                    FontSize="24"
-                                   TextColor="{StaticResource Gray500}"
+                                   TextColor="{Binding LoveButtonColor}"
                                    HorizontalOptions="Center"
                                    VerticalOptions="Center" />
                         </Border>
@@ -112,7 +122,8 @@
                                 TextColor="Black"
                                 FontFamily="OpenSansSemibold"
                                 CornerRadius="25"
-                                HeightRequest="50" />
+                                HeightRequest="50"
+                                Command="{Binding AdoptionCommand}" />
                     </Grid>
                 </VerticalStackLayout>
             </Border>

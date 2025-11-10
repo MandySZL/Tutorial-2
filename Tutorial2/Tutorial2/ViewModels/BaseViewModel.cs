@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Mvvm; // You need this for BindableBase
 
 namespace Tutorial2.ViewModels
 {
-    internal class BaseViewModel
+    // Fix 1: Must be 'public abstract'
+    // Fix 2: Fix typo 'BaseVieModel' -> 'BaseViewModel'
+    // Fix 3: Inherit from 'BindableBase'
+    public abstract class BaseViewModel : BindableBase
     {
+        public BaseViewModel()
+        {
+        }
     }
 }
