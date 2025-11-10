@@ -17,8 +17,13 @@ namespace Tutorial2
                     {
                         container.RegisterForNavigation<MainPage, MainPageViewModel>();
                     });
+<<<<<<< HEAD
                 });
 
+=======
+                })
+                // ...
+>>>>>>> parent of d93c5a2 (semicolon)
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
