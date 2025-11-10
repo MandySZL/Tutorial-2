@@ -23,7 +23,7 @@ namespace Tutorial2
                     {
                         app.NavigateAsync("MainPage");
                     });
-                })
+                });
                 // ...
 #if DEBUG
             builder.Logging.AddDebug();
